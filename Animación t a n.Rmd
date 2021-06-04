@@ -1,0 +1,45 @@
+---
+title: "Aproximación de una Distribución t-student a una normal"
+author: "Daniela Avellaneda"
+date: "4/6/2021"
+output: html_document
+---
+
+```{r}
+library(ggplot2)
+library(magrittr)
+library(tidyverse)
+library(gganimate)
+library(gifski)
+```
+
+```{r, message=FALSE, warning=FALSE}
+student <- function(n, df){
+  x <- rt(n = n, df = df)
+  med <- mean(x)
+  (med - 0)/(sqrt(df/(df - 2))/n)
+}
+
+Med <- replicate(1000, student(4, 3))
+Med <- data.frame(n=1:1000, x=Med)
+
+a <- Med %>% split(.$n) %>% accumulate(~ bind_rows(.x, .y)) %>% 
+  bind_rows(.id = "frame") %>%  mutate(frame = as.integer(frame))
+
+b <- ggplot(data = a, aes(x = x)) + 
+  geom_histogram(aes(y=..density..), fill = "#CB95F0", colour = "#823999")+
+  geom_density()+stat_function(fun = dnorm, colour = "#FAE454", size = 1.5)+
+  xlim(-7, 7)
+ 
+
+c <- b + transition_manual(frame) +ease_aes("linear", y = "density",
+  title = "Aproximación de una Distribución t-student a una normal")+
+  enter_grow()+enter_fade() +theme_minimal()+
+  theme(plot.title = element_text(size = 18, face = "bold", hjust = 0.4))
+
+c
+```
+
+
+
+
