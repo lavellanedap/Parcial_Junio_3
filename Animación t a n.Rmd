@@ -37,6 +37,7 @@ c <- b + transition_manual(frame) +ease_aes("linear", y = "density",
   enter_grow()+enter_fade() +theme_minimal()+
   theme(plot.title = element_text(size = 18, face = "bold", hjust = 0.4))
 
+
 c
 ```
 
