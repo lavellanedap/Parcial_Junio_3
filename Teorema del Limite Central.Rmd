@@ -1,0 +1,146 @@
+---
+title: "Teorema del Límite Central"
+author: "Daniela Avellaneda"
+date: "3/6/2021"
+output:
+  html_document:
+    df_print: paged
+  pdf_document: default
+---
+\pagebreak
+
+\begin{center}
+
+**Teorema del Límite Central**   
+
+\end{center}
+
+Si se seleccionan muestras aleatorias de $n$ observaciones de una población con media $\mu$ y desviación estándar $\sigma$ finita, entonces, cuando $n$ es "grande" la distribución de muestreo de la media muestral $\overline{X}$ tendrá aproximadamente una distribución normal con media $\mu$ y desviación estándar $\sigma/\sqrt{n}$.
+
+Además la variable aleatoria
+
+$$
+(\bar{X}-\mu)/(\sigma-\sqrt{n})
+$$
+
+Es aproximadamente normal estándar.
+
+Lo anterior implica que mientraas que el tamaño de la muestra no sea demasiado pequeño, $\overline{X}$ tiene una distribución aproximadamente normal independientemente de la forma de la distribución de la que se obtenido la muestra.
+
+\pagebreak
+
+\begin{center}
+
+**¿Qué tamaño de la muestra se considera grande?**   
+
+\end{center}
+Como regla general los estadísticos han encontrado que par la mayor parte de las distribuciones poblacionales siempre que el tamaño de la muestra sea por lo menos 30, la distribución muestral de la media será aproximadamente normal. Sin embargo, quizás sea posible aplicar el Teorema Central del Límite para tamaños de muestra incluso más pequeña, si se cuenta con algún conocimiento de la población, como por ejemplo, si la distribución es simétrica se puede apreciar en las figuras que se presentan a continuación la aplicación del Teorema Central del Límite, cuando el muestreo se hace de una población continua, uniforme y exponencial. Se toma para cada uno 500 muestras de tamaño n=2,4,8,16,32. Se puede observar que según aumenta el tamaño de la muestra, la distribución se aproxima a una normal. De los gráficos se pueden obtener las siguientes conclusiones:
+
+
+*Para la mayor parte de las distribuciones de la población, independientemente de su forma, la distribución muestral de la media tendrá distribución aproximadamente normal si se seleccionan muestras de por lo menos 30 observaciones
+
+
+*Si la distribución de la población es bastante simétrica, la distribución muestral de la media será aproximadamente normal y se seleccionan muestras de por lo menos quince observaciones.
+
+
+*Si la población tiene distribución normal, la dsitribución muestral de la media tendrá distribución normal independientemente del tamaño de la muestra.
+
+![Distribuciones para distintos tamaños de muestra](C:/Users/CLAUDIA PALACIO/Documents/NANIS/Universidad/Tercer Semestre/Bases de Datos/Proyecto parcial/Parcial_Junio_3/imagen uno.jpeg){width='300px' height='400px'}
+
+\pagebreak
+
+\begin{center}
+
+**Estimación del intervalo de la media cuando la varianza es desconocida**   
+
+\end{center}
+
+En la mayor parte de los casos cuando se realiza un estudio estadístico por primera vez, no hay forma de conocer previamente cuál es la media o la varianza de la población. En esta sección se considerará la inferencia sobre la media cuando la varianza de la población es desconocida.
+Para obtener el intervalo estimador se para $\mu$ bajo estas condiciones se debe tener en cuenta que no es 
+posible utilizar la variable aleatoria
+$$
+\frac{(\bar X-\mu)}{(\sigma/\sqrt{n})}
+$$
+Ya que el valor de $\sigma$ no es conocido, por ello debe ser estimado y además la distribución de probabilidad no es normal estándar.
+
+Un buen estimador de $\sigma$ es la desviación muestral $S$ a pesar de que no es un estimador insesgado de $\sigma$ (ver ejercicio 6.5 parte 9 de Susan). Al reeplazar en la expresión anterior la deviación poblacional por $S$ entonces se conoce teóricamente que la distribución de probabilidad de la variable aleatoria $(\bar{X}-\mu)/(\sigma-\sqrt{n})$ es T de Student.
+
+
+\pagebreak
+
+\begin{center}
+
+**¿Cuáles son las caracteísticas de una variable aleatoria t-student?**   
+
+\end{center}
+
+Como características principales se tienen:
+
+1. Hay un número infinito de variables aleatorias $T$, cada una identificada por un parámetro $n$, llamado grados de libertad, el cual es siempre un entero positivo.
+
+2. Cada variable aleatoria T es continua.
+
+3. El gráfico de la densidad de cada variable aleatoria $T_{n} $ es una curva simétrica en forma da campana centrada en cero.
+
+4. La media y la varianza de una variable aleatoria $T_{n}$ son respectivamente:
+
+$$
+E[T_{n}]=n
+$$
+y
+
+$$
+Var[T_{n}]=\frac{n}{n-2},  n>2
+$$
+5. Cuando el número de grados de libertad crece, la curva de densidad se aproxima a la de una distribución normal
+
+![ALgunas distribuciones T-Student](C:/Users/CLAUDIA PALACIO/Documents/NANIS/Universidad/Tercer Semestre/Bases de Datos/Proyecto parcial/Parcial_Junio_3/imagen dos.jpeg){width='300px' height='400px'}
+
+Nótese que si MATH la distribución T se transforma en la distribución normal estándar
+
+\pagebreak
+
+\begin{center}
+
+**Intervalo de confianza**   
+
+\end{center}
+
+se obtiene de manera análoga al caso con varianza conocida pero utilizando la variable MATH. De esta manera el intervalo estimador es
+
+$$
+(\bar X-tan\frac{S}{\sqrt{n}},tan\frac{S}{\sqrt{n}})
+$$
+
+\pagebreak
+
+\begin{center}
+
+**Ejemplo**   
+
+\end{center}
+
+Suponga que en una muestra se $\overline{x}=530.5$, $s^{2}=2376.57$, $n=8$ , un intervalo estimado con un grado de confianza del 95% es dado por
+
+$$
+(530.5-2.365\frac{s}{\sqrt{n}},530.5+2.365\frac{s}{\sqrt{n}})
+$$
+
+
+$$
+(530.5-2.365\frac{48.75}{\sqrt{8}},530.5+2.365\frac{48.75}{\sqrt{8}})
+$$
+
+
+Otra manera de expresar lo anterior es: $530.5\pm40.76$
+
+\pagebreak
+
+\begin{center}
+
+**Bibliografía**   
+
+\end{center}
+
+virtual.uptc.edu.co. (2004). Obtenido de virtual.uptc.edu.co: https://virtual.uptc.edu.co/ova/estadistica/docs/libros/h_men_est_basi/html/capitulo_5/leccion_05_05.html
+
